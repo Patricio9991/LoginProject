@@ -1,4 +1,4 @@
-import axios from './axios.config.js'
+import axios from 'axios'
 
 
 

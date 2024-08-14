@@ -46,10 +46,9 @@ export const AuthProvider = ({children})=>{
 
     const signUp = async (values)=>{
         const registerResponse = await registerUser(values)
-        if (!registerResponse.data.message) {
+        console.log(registerResponse)
+        if (registerResponse) {
             return responsesHandler(registerResponse)
-        }else{
-            console.log(registerResponse.data.message)
         }
     
     }
