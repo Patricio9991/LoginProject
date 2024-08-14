@@ -20,4 +20,7 @@ server.use("/api",authRoutes)
 server.use("/api",taskRoutes)
 
 
+server.listen(4000,()=>{
+    console.log("Conectado al puerto 4000")
+})
 connectDB()
