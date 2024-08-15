@@ -49,7 +49,7 @@ export const login = async (req,res) =>{
 
         const loginToken = await createToken({id:userFound._id})
         console.log(loginToken)
-        res.cookie('token',loginToken,{sameSite:'None'})
+        res.cookie('token',loginToken,{sameSite:'None',secure:true})
         res.json({username:userFound.username})
         
     }
