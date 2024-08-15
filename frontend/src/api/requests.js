@@ -5,6 +5,7 @@ import axios from './axios.config'
 export const registerUser = async (data)=>{
     try {
         const sendDataUser = await axios.post(`/api/register`,data)
+        console.log(sendDataUser)
         return sendDataUser
     } catch (error) {
         console.log(error)

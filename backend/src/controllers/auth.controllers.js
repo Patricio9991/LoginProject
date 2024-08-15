@@ -47,8 +47,8 @@ export const login = async (req,res) =>{
         const isMatch = await bcrypt.compare(password,userFound.password)
         if (!isMatch) return res.json({message:"Invalid password"})
 
-        const loginToken = await createToken({id:userFound._id,username:userFound.username})
-        res.cookie('token',loginToken)
+        const loginToken = await createToken({id:userFound._id})
+        res.cookie('token',loginToken,{sameSite:'None'})
         res.json({username:userFound.username})
         console.log(req.userDecoded)
     }

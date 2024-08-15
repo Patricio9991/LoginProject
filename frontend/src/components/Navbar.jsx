@@ -9,19 +9,19 @@ import Cookie from 'js-cookie'
 
 export default function Navbar(){
 
-    const {user,setUser,authOK,setAuthOK,logoutUser} = useAuth()
-    const navigate = useNavigate()
+    const {user,authOK,setAuthOK,logoutUser} = useAuth()
+    
     
 
 
-    const quickLogout = ()=>{
+//     const quickLogout = ()=>{
 
-        localStorage.clear()
-        setAuthOK(false)
-        Cookie.remove('token')
+//         localStorage.clear()
+//         setAuthOK(false)
+//         Cookie.remove('token')
 
-        navigate('/')
-   }    
+//         navigate('/')
+//    }    
 
 
     return(
@@ -56,7 +56,9 @@ export default function Navbar(){
                 ):(
                     <Fragment>
 
-                        <p className="font-bold underline"><Link to="/login">Login to start making tasks!</Link></p>
+                        <Link to="/login">
+                            <p className="font-bold underline">Login to start making tasks!</p>
+                        </Link>
                         
                             <Link to="/login">
                                 <Button btnTitle={"Login"} btnColor={"bg-blue-200"}/>

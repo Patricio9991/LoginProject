@@ -1,5 +1,5 @@
 import { createContext,useContext,useState,useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+
 import { loginUser, registerUser } from "../api/requests.js";
 import axios from "../api/axios.config.js";
 import Cookie from 'js-cookie'
@@ -32,7 +32,7 @@ export const AuthProvider = ({children})=>{
         try {
             
             if (!valuesFromresponse.data.errorsAlertTexts){
-                setUser(valuesFromresponse)
+                setUser(valuesFromresponse.data.userSaved.username)
                 setAuthOK(true)
             }else{
                 setErrors(valuesFromresponse.data.errorsAlertTexts)
@@ -46,7 +46,6 @@ export const AuthProvider = ({children})=>{
 
     const signUp = async (values)=>{
         const registerResponse = await registerUser(values)
-        console.log(values)
         console.log(registerResponse)
         if (registerResponse) {
             return responsesHandler(registerResponse)
@@ -66,6 +65,7 @@ export const AuthProvider = ({children})=>{
 
     const customLogin = async (loginData)=>{
         const res = await axios.post('/api/login',loginData)
+        console.log(res)
         if(!res.data.message){
             localStorage.setItem('user',JSON.stringify(res.data.username))
             localStorage.setItem('authOK',true)

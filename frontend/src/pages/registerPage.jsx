@@ -28,13 +28,11 @@ export default function RegisterPage(){
     return(
         <div>
 
-            <h1 onClick={()=>{setMsg("clickeado desde el children pepe");console.log(msg)}}>This is the register page</h1>
+            <h1>This is the register page</h1>
             <div className="min-h-screen flex flex-col justify-center items-center">
                 <div className="max-w-md bg-slate-700 rounded-md flex flex-col justify-center align-middle">
                     <form onSubmit={handleSubmit(async (values)=>{
-                        signUp(values);
-                        console.log(values)
-                       
+                        signUp(values); 
                     })} >
                         <label htmlFor="username" id="username">Username</label>
                         <input {...register("username", {required:true, maxLength:10}) } className="w-full"/>
@@ -48,7 +46,6 @@ export default function RegisterPage(){
                         <button type="submit" className="py-4">Register</button>
                         
                     </form>
-                    {console.log(typeof(errors))}
                     {errors ? errors.map((error,i)=>{
                         return ( <h1 className="text-red-800 bg-red-500" key={i}>{error}</h1>)}):""}
                     

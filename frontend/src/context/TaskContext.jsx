@@ -1,5 +1,5 @@
 import { createContext,useContext,useState } from "react";
-import axios from "../api/axios.config";
+import axios from "../api/axios.config.js";
 
 
 const TaskContext = createContext()
@@ -32,7 +32,7 @@ export function TaskProvider({children}){
 
     const getAllUserTasks = async ()=>{
         const res = await axios.get('/api/allTasks')
-        setTaskList(res.data.allUserTasks)
+        return res
     
     }
 
