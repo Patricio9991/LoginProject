@@ -23,7 +23,7 @@ export default function RegisterPage(){
     }
 
     backTologin(authOK)
-    console.log(msg)
+
     // const registerData = data => console.log(data)
     return(
         <div>
@@ -33,6 +33,7 @@ export default function RegisterPage(){
                 <div className="max-w-md bg-slate-700 rounded-md flex flex-col justify-center align-middle">
                     <form onSubmit={handleSubmit(async (values)=>{
                         signUp(values);
+                        console.log(values)
                        
                     })} >
                         <label htmlFor="username" id="username">Username</label>

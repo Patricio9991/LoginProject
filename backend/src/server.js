@@ -11,7 +11,7 @@ import { connectDB } from './db.js'
 
 const server = express()
 
-server.use(cors({origin:'https://login-project-six-zeta.vercel.app/',credentials:true}))
+server.use(cors({credentials:true}))
 server.use(morgan('dev'))
 server.use(express.json())
 server.use(cookieParser())
