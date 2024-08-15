@@ -48,9 +48,10 @@ export const login = async (req,res) =>{
         if (!isMatch) return res.json({message:"Invalid password"})
 
         const loginToken = await createToken({id:userFound._id})
+        console.log(loginToken)
         res.cookie('token',loginToken,{sameSite:'None'})
         res.json({username:userFound.username})
-        console.log(req.userDecoded)
+        
     }
     catch(err){
         console.log(err)
