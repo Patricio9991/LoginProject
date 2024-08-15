@@ -4,7 +4,7 @@ import axios from './axios.config'
 
 export const registerUser = async (data)=>{
     try {
-        const sendDataUser = await axios.post(`api/register`,data)
+        const sendDataUser = await axios.post(`/api/register`,data)
         return sendDataUser
     } catch (error) {
         console.log(error)
