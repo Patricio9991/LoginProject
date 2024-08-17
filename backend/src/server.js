@@ -11,7 +11,14 @@ import { connectDB } from './db.js'
 
 const server = express()
 
-server.use(cors())
+
+const corsOptions = {
+    origin: 'https://login-project-8wnm9j43a-patricio9991s-projects.vercel.app/', // Replace with your frontend domain
+    credentials: true,
+    methods: ['GET', 'POST', 'PUT', 'DELETE']
+  };
+
+server.use(cors(corsOptions))
 server.use(morgan('dev'))
 server.use(express.json())
 server.use(cookieParser())
