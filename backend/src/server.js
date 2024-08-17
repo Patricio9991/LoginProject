@@ -10,6 +10,7 @@ import { connectDB } from './db.js'
 
 
 const server = express()
+connectDB()
 
 
 const corsOptions = {
@@ -30,4 +31,3 @@ server.use("/api",taskRoutes)
 server.listen(4000,()=>{
     console.log("Conectado al puerto 4000")
 })
-connectDB()
