@@ -11,7 +11,7 @@ import { connectDB } from './db.js'
 
 const server = express()
 
-server.use(cors({origin: "https://login-project-8wnm9j43a-patricio9991s-projects.vercel.app" ,credentials:true}))
+server.use(cors())
 server.use(morgan('dev'))
 server.use(express.json())
 server.use(cookieParser())
