@@ -14,7 +14,7 @@ connectDB()
 
 
 const corsOptions = {
-    origin: 'https://login-project-snowy.vercel.app', // Replace with your frontend domain
+    origin: true, // Replace with your frontend domain
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
   };
