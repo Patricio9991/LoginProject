@@ -16,6 +16,7 @@ export const useTasks = ()=>{
 export function TaskProvider({children}){
 
     const [taskList,setTaskList] = useState([])
+    const [taskErros,setTaskErros] = useState([])
 
     const createTask = async (dataTask)=>{
         try {
