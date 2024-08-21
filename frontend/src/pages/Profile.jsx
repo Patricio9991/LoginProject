@@ -15,7 +15,7 @@ export default function Profile(){
         
             <div className="bg-red-400">
                 <h1 className="text-3xl text-white">This is your profile</h1>
-                {/* <div className="mt-4 flex flex-row flex-wrap justify-center mx-8">
+                <div className="mt-4 flex flex-row flex-wrap justify-center mx-8">
                 
                     {taskList.length > 0 ? (
                         taskList.map((task) => (
@@ -27,7 +27,7 @@ export default function Profile(){
                         <p className="text-center w-full">No tasks available</p>
                     )}
                 
-            </div> */}
+            </div>
             </div>
         
     )
