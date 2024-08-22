@@ -7,8 +7,7 @@ import TaskCard from "../components/TaskCard"
 
 export default function Profile(){
 
- 
-
+    const {taskList} = useTasks()
 
 
     return(

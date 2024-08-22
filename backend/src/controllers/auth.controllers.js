@@ -22,7 +22,7 @@ export const register = async (req,res) =>{
         const userSaved = await newUser.save()
         const token = await createToken({id:userSaved.id})
         console.log(token)
-        res.cookie('token',token,{sameSite:'None',secure:true})
+        res.cookie('token',token)
         res.json({userSaved})
 
 
@@ -43,13 +43,20 @@ export const login = async (req,res) =>{
         const userFound = await User.findOne({email:email})
         if(!userFound) return res.json({message:"User not found"})
 
-                                                        //contraseña gaurdada en la DB
+                                                    //contraseña gaurdada en la DB
         const isMatch = await bcrypt.compare(password,userFound.password)
         if (!isMatch) return res.json({message:"Invalid password"})
 
+        console.log(userFound)
         const loginToken = await createToken({id:userFound._id})
         console.log(loginToken)
-        res.cookie('token',loginToken)
+
+        res.cookie('token', loginToken, {
+            httpOnly: true,
+            secure: true, // Solo se enviará a través de HTTPS
+            sameSite: 'None', // Protege contra ataques CSRF
+            maxAge: 3600000 // 1 hora
+          });
         res.json({username:userFound.username})
         
     }
