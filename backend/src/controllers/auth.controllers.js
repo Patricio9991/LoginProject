@@ -53,8 +53,7 @@ export const login = async (req,res) =>{
 
         res.cookie('token', loginToken, {
             httpOnly: false, // La cookie solo es accesible desde el servidor (no desde el cliente)
-            secure: process.env.NODE_ENV === 'production', // Solo en HTTPS si estás en producción
-            sameSite: 'Strict', // Solo envía la cookie en solicitudes del mismo sitio
+            sameSite: 'None', // Solo envía la cookie en solicitudes del mismo sitio
             path: '/' // Disponible en todo el sitio
         });
         
