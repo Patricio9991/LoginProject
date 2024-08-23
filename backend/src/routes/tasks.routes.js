@@ -7,7 +7,7 @@ const router = Router()
 router.get("/allTasks",validateToken,getTasks)
 router.get("/tasks/:id",validateToken,getOneTask)
 
-router.post("/create-task",createTasks)
+router.post("/create-task",validateToken,createTasks)
 
 
 router.put("/tasks/:id",validateToken,editTasks)

@@ -52,11 +52,12 @@ export const login = async (req,res) =>{
         console.log(loginToken)
 
         res.cookie('token', loginToken, {
-            httpOnly: true,
-            secure: true, // Solo se enviará a través de HTTPS
-            sameSite: 'None', // Protege contra ataques CSRF
-            maxAge: 3600000 // 1 hora
-          });
+            httpOnly: false, // La cookie solo es accesible desde el servidor (no desde el cliente)
+            secure: process.env.NODE_ENV === 'production', // Solo en HTTPS si estás en producción
+            sameSite: 'Strict', // Solo envía la cookie en solicitudes del mismo sitio
+            path: '/' // Disponible en todo el sitio
+        });
+        
         res.json({username:userFound.username})
         
     }

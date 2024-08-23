@@ -12,9 +12,11 @@ import { connectDB } from './db.js'
 const server = express()
 connectDB()
 
+const vercelURL = "https://login-project-snowy.vercel.app"
+const viteLocal = "http://localhost:5173"
 
 const corsOptions = {
-    origin: "https://login-project-snowy.vercel.app", // Replace with your frontend domain
+    origin: vercelURL, // Replace with your frontend domain
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE']
   };

@@ -1,5 +1,4 @@
 import { Fragment, useEffect } from "react"
-import { Link } from "react-router-dom"
 import { useTasks } from "../context/TaskContext"
 import TaskCard from "../components/TaskCard"
 
@@ -9,11 +8,12 @@ export default function Profile(){
 
     const {taskList} = useTasks()
 
+    console.log(taskList)
 
     return(
         
-            <div className="bg-red-400">
-                <h1 className="text-3xl text-white">This is your profile</h1>
+            <Fragment>
+                
                 <div className="mt-4 flex flex-row flex-wrap justify-center mx-8">
                 
                     {taskList.length > 0 ? (
@@ -26,8 +26,8 @@ export default function Profile(){
                         <p className="text-center w-full">No tasks available</p>
                     )}
                 
-            </div>
-            </div>
+                </div>
+            </Fragment>
         
     )
 }

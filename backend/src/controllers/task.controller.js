@@ -1,6 +1,6 @@
 import Task from '../models/task.model.js'
 import Order from '../models/order.model.js'
-import Cookies from 'js-cookie'
+
 
 
 export const getTasks = async (req,res)=>{
@@ -30,7 +30,7 @@ export const newOrder = async(req,res)=>{
         order: order
     })
 
-    const saveOrder = await newOrder.save()
+    await newOrder.save()
     res.json(newOrder) 
 }
 

@@ -11,12 +11,13 @@ export default function CreateTask(){
 
 
     const {createTask} = useTasks()
+    
 
 
     return(
         <Fragment>
             <div className="min-h-screen flex justify-center items-center">
-                <form onSubmit={handleSubmit((data)=>{createTask(data);console.log(data)})} className="w-full max-w-md flex flex-col justify-center align-middle">
+                <form onSubmit={handleSubmit(async(data)=>{await createTask(data)})} className="w-full max-w-md flex flex-col justify-center align-middle">
                     <input {...register("titleTask")} placeholder="Task title"
                         className="w-full my-2 rounded-md p-2"/>
 

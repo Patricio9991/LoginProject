@@ -22,7 +22,7 @@ export function TaskProvider({children}){
         try {
             const res = await axios.post('/api/create-task',dataTask)
             console.log(res)
-            return res
+            taskList.push(res.data)
             
         } catch (error) {
             console.log(error)
