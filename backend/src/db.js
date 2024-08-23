@@ -7,7 +7,7 @@ const atlasURL = "mongodb+srv://ppuchetadev:0WCxf2u7foTEDOWJ@mern-landr.htkyrnn.
 
 export const connectDB = async () => {
   try {
-    await mongoose.connect(localURL);
+    await mongoose.connect(atlasURL);
     console.log("db connected");
   } catch (error) {
     console.log(error);
